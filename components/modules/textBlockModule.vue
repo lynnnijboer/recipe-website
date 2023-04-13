@@ -91,7 +91,7 @@ export default {
       display: grid;
       grid-template-columns: 2fr 1.5fr;
       overflow: hidden;
-      height: 300px;
+      height: 250px;
 
       &__image {
         background-image: var(--bg-img);

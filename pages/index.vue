@@ -100,7 +100,7 @@ export default {
           textBlocks: [
             {
               title: 'How to make it?',
-              text: 'CO-DA Studios is a digital media content production company specializing in marketing content creation for brands & individuals. Providing graphic design, video production, photography, and animation that seek to inspire your brand’s clientele.',
+              text: '',
               listItems: [
                 {
                   step: 'Step 1',
