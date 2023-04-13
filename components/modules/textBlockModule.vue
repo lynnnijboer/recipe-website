@@ -12,18 +12,24 @@
         <div 
           v-for="(block, index) in textBlocks" 
           :key="index"
-          class="textBlockModule__textBlock w-100" 
-          :class="[textBlocks.length === 1 ? 'd-flex flex-column align-items-center text-center' : '',
-          bgDark === true ? 'text-color-light padding-bg-dark' : 'text-color-dark']"
+          class="textBlockModule__textBlock w-100"
+          :class="bgDark === true ? 'text-color-light padding-bg-dark' : 'text-color-dark'"
         >
-              <h3 class="title h4">{{ block.title }}</h3>
-              <p  class="text">{{ block.text }}</p>
-              <uiButton 
-                class="textBlockModule__button" 
-                v-if="block.buttonText && block.buttonColor" 
-                :buttonText="block.buttonText" 
-                :color="block.buttonColor"
-              />
+            <h3 class="title h4">{{ block.title }}</h3>
+            <p  class="text">{{ block.text }}</p>
+            <div
+              v-for="(item, index) in block.listItems" :key="index"
+              class="listItems">
+              <div class="listItems__content">
+                <li class="h6 listItems__step">{{ item.step }}</li>
+                <p class="listItems__instructions">{{ item.instructions }}</p>
+                </div>
+                <div 
+                  class="listItems__image" 
+                  :style="{ '--bg-img': `url('${item.img}')` }"
+                >
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,20 +54,12 @@ export default {
 
 <style lang="scss" scoped>
 .textBlockModule {
-  padding-top: rem(50px);
-  padding-bottom: rem(50px);
+  padding-top: rem(100px);
+  padding-bottom: rem(100px);
 
   .padding-bg-dark {
     padding-top: rem(50px);
     padding-bottom: rem(50px);
-  }
-
-  .title {
-    height: auto;
-
-    @include media-breakpoint-up(md) {
-      height: 47px
-    }
   }
 
   .grid {
@@ -82,11 +80,34 @@ export default {
     }
   }
 
-  &__button {
-    margin-top: 20px;
-  }
-
   &__textBlock {
+
+    .listItems {
+      margin-top: 40px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+      cursor: pointer;
+      border-radius: 2rem;
+      background-color: var(--color-light);
+      display: grid;
+      grid-template-columns: 2fr 1.5fr;
+      overflow: hidden;
+      height: 300px;
+
+      &__image {
+        background-image: var(--bg-img);
+        background-size: cover;
+      }
+
+      &__content {
+        padding: 2rem;
+      }
+
+      &__step {
+        list-style-type: none;
+        font-weight: bold;
+      }
+    }
+
     .text {
       width: 100%;
       max-width: 600px;

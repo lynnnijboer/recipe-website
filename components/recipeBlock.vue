@@ -1,22 +1,29 @@
 
 <template>
-  <div class="skillBlock w-100">
-    <div class="skillBlock__content text-color-dark">
+  <nuxt-link 
+    :to="`/recipes/${slug}`"  
+    class="recipeBlock w-100"
+  >
+    <div class="recipeBlock__content text-color-dark">
       <h5 class="m-0 h6">{{ title }}</h5>
       <p class="m-0">{{ text }}</p>
+      <div class="recipeBlock__content--info">
+        <p class="mb-0 mt-4">{{ time }}</p>
+        <p class="mb-0 mt-4">{{ kcal }}</p>
+      </div>
     </div>
     <div 
-      class="skillBlock__image" 
+      class="recipeBlock__image" 
       :style="{ '--bg-img': `url('${img}')` }"
     >
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 
 export default {
-  name: 'skillBlock',
+  name: 'recipeBlock',
   props: {
     title: {
       type: String,
@@ -27,6 +34,14 @@ export default {
       type: String,
       default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
+    time: {
+      type: String,
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    kcal: {
+      type: String,
+      default: "350kcal"
+    },
     img: {
       type: String,
       default: "https://images.pexels.com/photos/3715605/pexels-photo-3715605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -36,17 +51,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.skillBlock {
+.recipeBlock {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
   cursor: pointer;
   border-radius: 2rem;
   background-color: var(--color-light);
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 1.5fr;
   overflow: hidden;
 
   &__content {
-    padding: 3rem;
+    padding: 2rem;
+
+    &--info {
+      display: flex;
+      opacity: 0.5;
+      justify-content: space-between;
+    }
   }
 
   &__image {

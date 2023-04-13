@@ -6,14 +6,18 @@
           <h1 class="heroModule__content--title h3">{{ title }}</h1>
           <p class="heroModule__content--text">{{ text }}</p>
           <div class="heroModule__content--buttons">
-            <uiButton 
-              :color="buttonColor" 
-              :buttonText="buttonText"
-            />
-            <uiButton 
-              :color="secondButtonColor" 
-              :buttonText="secondButtonText"
-            />
+            <nuxt-link to="/">
+              <uiButton 
+                :color="buttonColor" 
+                :buttonText="buttonText"
+              />
+            </nuxt-link>
+            <nuxt-link to="/">
+              <uiButton 
+                :color="secondButtonColor" 
+                :buttonText="secondButtonText"
+              />
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -62,6 +66,11 @@ export default {
 
   &__content {
     color: var(--color-light);
+    text-align: center;
+
+    @include media-breakpoint-up(sm) {
+      text-align: left;
+    }
 
     &--text {
       width: 100%;

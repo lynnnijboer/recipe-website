@@ -13,19 +13,15 @@ export default {
     name: 'default',
     data() {
         return {
-            buttonText: 'button text',
+            buttonText: 'Contact me',
             color: 'alpha',
             listItems: [
                 {
-                    itemText: 'home',
+                    itemText: 'Home',
                     link: 'hallo',
                 },
                 {
-                    itemText: 'my work',
-                    link: 'hallo',
-                },
-                {
-                    itemText: 'contact',
+                    itemText: 'All recipes',
                     link: 'hallo',
                 },
             ]

@@ -35,9 +35,9 @@
         :buttonColor="module.buttonColor" 
         :buttonText="module.buttonText" 
       />
-      <modulesSkillBlockModule 
-        v-if="module.type === 'skillBlock'" 
-        :skillBlocks="module.skillBlocks"
+      <modulesRecipeBlockModule 
+        v-if="module.type === 'recipeBlock'" 
+        :recipeBlocks="module.recipeBlocks"
       />
     </div>
   </section>
