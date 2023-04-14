@@ -12,6 +12,7 @@
             :time="recipeBlock.time"
             :img="recipeBlock.img"
             :kcal="recipeBlock.kcal"
+            :slug="recipeBlock.slug"
           />
         </div>
       </div>

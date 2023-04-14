@@ -1,22 +1,19 @@
 
 <template>
-  <div 
-      class="textBlockModule" 
-      :class="bgDark === true ? 'bg-color-beta' : 'bg-color-light'"
-    >
+  <div class="textBlockModule">
     <div class="container">
-      <div 
-        class="textBlockModule__wrapper" 
-        :class="textBlocks.length === 1 ? '' : 'grid'"
-        >
         <div 
           v-for="(block, index) in textBlocks" 
           :key="index"
           class="textBlockModule__textBlock w-100"
-          :class="bgDark === true ? 'text-color-light padding-bg-dark' : 'text-color-dark'"
         >
             <h3 class="title h4">{{ block.title }}</h3>
-            <p  class="text">{{ block.text }}</p>
+            <li 
+              v-for="(ingredient, index) in block.ingredients" 
+              :key="index"
+              class="text">
+              {{ ingredient.recipe }}
+            </li>
             <div
               v-for="(item, index) in block.listItems" :key="index"
               class="listItems">
@@ -30,7 +27,6 @@
                 >
               </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -43,11 +39,7 @@ export default {
     textBlocks: {
       type: Array,
       required: true
-    },
-    bgDark: {
-      type: Boolean,
-      required: true
-    },
+    }
   },
 }
 </script>
@@ -89,9 +81,15 @@ export default {
       border-radius: 2rem;
       background-color: var(--color-light);
       display: grid;
-      grid-template-columns: 2fr 1.5fr;
+      grid-template-rows: 2fr 1.5fr;
+      grid-template-columns: 1fr;
       overflow: hidden;
-      height: 250px;
+
+      @include media-breakpoint-up(sm) {
+        grid-template-columns: 2fr 1.5fr;
+        grid-template-rows: 1fr;
+        height: 250px;
+      }
 
       &__image {
         background-image: var(--bg-img);

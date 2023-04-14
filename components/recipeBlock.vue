@@ -5,8 +5,10 @@
     class="recipeBlock w-100"
   >
     <div class="recipeBlock__content text-color-dark">
-      <h5 class="m-0 h6">{{ title }}</h5>
-      <p class="m-0">{{ text }}</p>
+      <div class="recipeBlock__content--title">
+        <h5 class="m-0 h6">{{ title }}</h5>
+        <p class="m-0">{{ text }}</p>
+      </div>
       <div class="recipeBlock__content--info">
         <p class="mb-0 mt-4">{{ time }}</p>
         <p class="mb-0 mt-4">{{ kcal }}</p>
@@ -45,6 +47,10 @@ export default {
     img: {
       type: String,
       default: "https://images.pexels.com/photos/3715605/pexels-photo-3715605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    slug: {
+      type: String,
+      required: true
     }
   }
 }
@@ -57,11 +63,21 @@ export default {
   border-radius: 2rem;
   background-color: var(--color-light);
   display: grid;
-  grid-template-columns: 2.5fr 1.5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
   overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 2fr 1.5fr;
+    grid-template-rows: 1fr;
+    height: 250px;
+  }
 
   &__content {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &--info {
       display: flex;

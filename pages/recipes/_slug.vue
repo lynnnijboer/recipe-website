@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <nuxtLink to="/" class="h5">Back to home</nuxtLink>
+        <nuxtLink to="/" class="h5 text-color-dark">Back to home</nuxtLink>
         <div v-if="recipeBlock">
              <div class="modules">
                 <modules :modules="modules"/>
@@ -19,9 +19,9 @@ export default {
     },
     async fetch() {
         const recipeBlock = await this.$contentful.getEntries({
-            content_type: "cardExample",
+            content_type: "recipePage",
             "fields.slug": this.$route.params.slug,
-            include: 4,
+            include: 3,
         });
         if (recipeBlock.items.length === 0) {
             this.$nuxt.error({ statusCode: 404, message: "Page not found" });
