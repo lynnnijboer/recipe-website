@@ -1,10 +1,17 @@
+import contentful from './plugins/contentful';
+
+const config = require('./config/config');
+
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'recipe-website',
+    title: 'stage-website',
     htmlAttrs: {
       lang: 'en'
     },
@@ -16,15 +23,16 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: config.css,
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/contentful",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -32,6 +40,10 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/svg',
+    '@vueuse/core/nuxt',
+    '@nuxtjs/style-resources',
+    '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -40,5 +52,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  styleResources: {
+    scss: [
+      './assets/scss/functions/*.scss',
+      './assets/scss/mixins/*.scss',
+      './assets/scss/_config.scss',
+      './assets/scss/placeholders/*.scss',
+      './assets/scss/bootstrap/_variables.scss',
+    ],
+  },
 }
