@@ -3,21 +3,16 @@
     <div 
       v-for="(module, index) in modules" 
       :key="index">
-      <modulesHeroModule 
-        v-if="module.type === 'hero'" 
-        :title="module.title" :text="module.text" 
-        :buttonColor="module.buttonColor" 
-        :secondButtonColor="module.secondButtonColor" 
-        :buttonText="module.buttonText" 
-        :secondButtonText="module.secondButtonText"
-      />
       <modulesTextBlockModule 
-        v-if="module.type === 'textBlock'" 
-        :textBlocks="module.textBlocks" 
+        v-if="module.sys.contentType.sys.id === 'textBlockModule'" 
+        :title="module.fields.title"
+        :ingredients="module.fields.ingredients"
+        :listItems="module.fields.listItems"
       />
       <modulesRecipeBlockModule 
-        v-if="module.type === 'recipeBlock'" 
-        :recipeBlocks="module.recipeBlocks"
+        v-if="module.sys.contentType.sys.id === 'recipeBlockModule'" 
+        :recipeBlocks="module.fields.recipeBlocks"
+        :title="module.fields.title"
       />
     </div>
   </section>

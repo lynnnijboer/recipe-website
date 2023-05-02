@@ -10,8 +10,8 @@
         <p class="m-0">{{ text }}</p>
       </div>
       <div class="recipeBlock__content--info">
-        <p class="mb-0 mt-4">{{ time }}</p>
-        <p class="mb-0 mt-4">{{ kcal }}</p>
+        <p class="mb-0 mt-4">{{ time }} min</p>
+        <p class="mb-0 mt-4">{{ kcal }} kcal</p>
       </div>
     </div>
     <div 
@@ -37,16 +37,15 @@ export default {
       default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     time: {
-      type: String,
-      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      type: Number,
     },
     kcal: {
-      type: String,
-      default: "350kcal"
+      type: Number,
     },
     img: {
       type: String,
-      default: "https://images.pexels.com/photos/3715605/pexels-photo-3715605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      default: "https://images.pexels.com/photos/3715605/pexels-photo-3715605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      required: true
     },
     slug: {
       type: String,

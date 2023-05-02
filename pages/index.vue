@@ -1,7 +1,18 @@
 <template>
+ <div v-if="currentPage.fields" class="index">
+    <modulesHeroModule
+      :title="currentPage.fields.title"
+      :text="currentPage.fields.text"
+      :buttonColor="currentPage.fields.buttonColor"
+      :buttonText="currentPage.fields.buttonText"
+      :secondButtonColor="currentPage.fields.secondButtonColor"
+      :secondButtonText="currentPage.fields.secondButtonText"
+    />
     <div class="modules">
-      <modules :modules="modules"/>
+      <modules :modules="currentPage.fields.modules" />
     </div>
+      <pre>{{ currentPage.fields.modules }}</pre>
+  </div>
 </template>
 
 <script>
@@ -10,31 +21,11 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      data() {
-        return {
-          currentPage: {},
-        };
-      },
-      async fetch() {
-        const { items } = await this.$contentful.getEntries({
-          content_type: 'homepage',
-          include: 4,
-        });
-
-        [this.currentPage] = items;
-      },
+      currentPage: {},
       modules: [
         {
-          type: 'hero',
-          title: 'Find here low calorie recipes',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          buttonColor: 'alpha',
-          secondButtonColor: '',
-          buttonText: 'All recipes',
-          secondButtonText: 'Contact me',
-        },
-        {
-          type: 'recipeBlock',
+          type: 'recipeBlockModule',
+          title: 'hallo',
           recipeBlocks: [
             {
               title: 'Recept naam',
@@ -104,45 +95,53 @@ export default {
         },
         {
           type: 'textBlock',
-          textBlocks: [
+          title: 'Benodigdheden & bereiding',
+          ingredients: [
             {
-              title: 'Benodigdheden & bereiding',
-              ingredients: [
-                {
-                  recipe: '1 ei'
-                },
-                {
-                  recipe: '40g eiwit'
-                },
-                {
-                  recipe: '10g bloem'
-                },
-                {
-                  recipe: '10ml olijfolie'
-                },
-              ],
-              listItems: [
-                {
-                  step: 'Step 1',
-                  instructions: 'CO-DA Studios is a digital media content production company specializing in marketing content creation for brands & individuals.',
-                  img: 'https://images.pexels.com/photos/2116094/pexels-photo-2116094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-                },
-                {
-                  step: 'Step 2',
-                  instructions: 'CO-DA Studios is a digital media content production company specializing in marketing content creation for brands & individuals.',
-                  img: 'https://images.pexels.com/photos/5894552/pexels-photo-5894552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-                },
-                {
-                  step: 'Step 3',
-                  instructions: 'CO-DA Studios is a digital media content production company specializing in marketing content creation for brands & individuals.',
-                  img: 'https://images.pexels.com/photos/4781414/pexels-photo-4781414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-                },
-              ]
+              recipe: '1 ei'
+            },
+            {
+              recipe: '40g eiwit'
+            },
+            {
+              recipe: '10g bloem'
+            },
+            {
+              recipe: '10ml olijfolie'
+            },
+          ],
+          listItems: [
+            {
+              id: 1,
+              step: 'Step 1',
+              instructions: 'CO-DA Studios is a digital media content production company specializing in marketing content creation for brand',
+              img: 'https://images.pexels.com/photos/2116094/pexels-photo-2116094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            },
+            {
+              id: 2,
+              step: 'Step 2',
+              instructions: 'CO-DA Studios is a digital media content production company specializing in marketing contentds & individuals.',
+              img: 'https://images.pexels.com/photos/5894552/pexels-photo-5894552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            },
+            {
+              id: 3,
+              step: 'Step 3',
+              instructions: 'CO-DA Studios is a digital media content production company specializing tent creation for brands & individuals.',
+              img: 'https://images.pexels.com/photos/4781414/pexels-photo-4781414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
             },
           ]
         },
-      ]
+      ],
     }
-  }
+  },
+
+  async fetch() {
+    const { items } = await this.$contentful.getEntries({
+      content_type: 'homepage',
+      include: 5,
+    });
+
+    [this.currentPage] = items;
+  },
 }
 </script>

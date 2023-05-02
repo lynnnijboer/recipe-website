@@ -2,28 +2,26 @@
 <template>
   <div class="textBlockModule">
     <div class="container">
-        <div 
-          v-for="(block, index) in textBlocks" 
-          :key="index"
-          class="textBlockModule__textBlock w-100"
-        >
-            <h3 class="title h4">{{ block.title }}</h3>
+        <div class="textBlockModule__textBlock w-100">
+            <h3 class="title h4">{{ title }}</h3>
             <li 
-              v-for="(ingredient, index) in block.ingredients" 
+              v-for="(ingredient, index) in recipeBlock.fields.ingredients" 
               :key="index"
               class="text">
-              {{ ingredient.recipe }}
+              {{ ingredient.fields.recipe }}
             </li>
             <div
-              v-for="(item, index) in block.listItems" :key="index"
-              class="listItems">
+              v-for="(item, index) in recipeBlock.fields.listItems" 
+              :key="`${index}-${item.id}`"
+              class="listItems"
+            >
               <div class="listItems__content">
-                <li class="h6 listItems__step">{{ item.step }}</li>
-                <p class="listItems__instructions">{{ item.instructions }}</p>
+                <li class="h6 listItems__step">{{ item.fields.step }}</li>
+                <p class="listItems__instructions">{{ item.fields.instruction }}</p>
                 </div>
                 <div 
                   class="listItems__image" 
-                  :style="{ '--bg-img': `url('${item.img}')` }"
+                  :style="{ '--bg-img': `url('${item.fields.img}')` }"
                 >
               </div>
           </div>
@@ -36,9 +34,14 @@
 export default {
   name: "textBlockModule",
   props: {
-    textBlocks: {
+    title: {
+      type: String,
+    },
+    ingredients: {
       type: Array,
-      required: true
+    },
+    listItems: {
+      type: Array,
     }
   },
 }

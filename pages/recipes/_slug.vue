@@ -1,17 +1,18 @@
 <template>
     <div class="container">
         <nuxtLink to="/" class="h5 text-color-dark">Back to home</nuxtLink>
-        <div v-if="recipeBlock">
-             <div class="modules">
-                <modules :modules="modules"/>
-            </div>
-        </div>
+        <modulesTextBlockModule
+            v-if="recipeBlock"
+            :title="recipeBlock.fields.title"
+            :ingredients="recipeBlock.fields.ingredients"
+            :listItems="recipeBlock.fields.listItems"
+        />
     </div>
 </template>
 <script>
 
 export default {
-    transition: 'recipePage',
+    name: 'recipePage',
     data() {
         return {
             recipeBlock: null,
@@ -30,6 +31,5 @@ export default {
             [this.recipeBlock] = recipeBlock.items;
         }
     },
-    components: { modules }
 };
 </script>

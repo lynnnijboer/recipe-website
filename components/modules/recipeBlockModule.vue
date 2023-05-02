@@ -2,17 +2,17 @@
 <template>
     <div class="recipeBlockModule">
       <div class="container">
-        <h3 class="recipeBlockModule__title">Recipes</h3>
+        <h3 class="recipeBlockModule__title">{{ title }}</h3>
         <div class="recipeBlockModule__recipeBlocks">
           <recipeBlock 
             v-for="(recipeBlock, index) in recipeBlocks" 
             :key="index" 
-            :text="recipeBlock.text" 
-            :title="recipeBlock.title"
-            :time="recipeBlock.time"
-            :img="recipeBlock.img"
-            :kcal="recipeBlock.kcal"
-            :slug="recipeBlock.slug"
+            :text="recipeBlock.fields.text" 
+            :title="recipeBlock.fields.title"
+            :time="recipeBlock.fields.time"
+            :img="recipeBlock.fields.img.fields.file.url"
+            :kcal="recipeBlock.fields.kcal"
+            :slug="recipeBlock.fields.slug"
           />
         </div>
       </div>
@@ -27,6 +27,9 @@ export default {
     recipeBlocks: {
       type: Array,
       required: true
+    },
+    title: {
+      type: String,
     }
   }
 }
