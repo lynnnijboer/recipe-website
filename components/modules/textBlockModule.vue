@@ -5,13 +5,13 @@
         <div class="textBlockModule__textBlock w-100">
             <h3 class="title h4">{{ title }}</h3>
             <li 
-              v-for="(ingredient, index) in block.ingredients" 
+              v-for="(ingredient, index) in ingredients" 
               :key="`ingredient-${index}`"
               class="text">
-              {{ ingredient.fields.recipe }}
+              {{ ingredient }}
             </li>
             <div
-              v-for="(item, index) in block.listItems" 
+              v-for="(item, index) in listItems" 
               :key="`item-${index}`"
               class="listItems">
               <div class="listItems__content">
@@ -20,7 +20,7 @@
                 </div>
                 <div 
                   class="listItems__image" 
-                  :style="{ '--bg-img': `url('${item.fields.img}')` }"
+                  :style="{ '--bg-img': `url('${item.fields.img.fields.file.url}')` }"
                 >
               </div>
           </div>
