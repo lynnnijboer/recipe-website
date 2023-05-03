@@ -12,7 +12,7 @@
 <script>
 
 export default {
-    name: 'recipePage',
+    name: 'recipeBlock',
     data() {
         return {
             recipeBlock: null,
@@ -20,7 +20,7 @@ export default {
     },
     async fetch() {
         const recipeBlock = await this.$contentful.getEntries({
-            content_type: "recipePage",
+            content_type: "recipeBlock",
             "fields.slug": this.$route.params.slug,
             include: 3,
         });

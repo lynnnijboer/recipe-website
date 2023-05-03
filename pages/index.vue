@@ -1,5 +1,5 @@
 <template>
- <div v-if="currentPage.fields" class="index">
+ <div v-if="currentPage && currentPage.fields" class="index">
     <modulesHeroModule
       :title="currentPage.fields.title"
       :text="currentPage.fields.text"
@@ -11,7 +11,6 @@
     <div class="modules">
       <modules :modules="currentPage.fields.modules" />
     </div>
-      <pre>{{ currentPage.fields.modules }}</pre>
   </div>
 </template>
 
