@@ -22,7 +22,7 @@ export default {
         const recipeBlock = await this.$contentful.getEntries({
             content_type: "recipePage",
             "fields.slug": this.$route.params.slug,
-            include: 3,
+            include: 4,
         });
         if (recipeBlock.items.length === 0) {
             this.$nuxt.error({ statusCode: 404, message: "Page not found" });

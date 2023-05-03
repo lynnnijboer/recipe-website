@@ -5,16 +5,15 @@
         <div class="textBlockModule__textBlock w-100">
             <h3 class="title h4">{{ title }}</h3>
             <li 
-              v-for="(ingredient, index) in recipeBlock.fields.ingredients" 
-              :key="index"
+              v-for="(ingredient, index) in block.ingredients" 
+              :key="`ingredient-${index}`"
               class="text">
               {{ ingredient.fields.recipe }}
             </li>
             <div
-              v-for="(item, index) in recipeBlock.fields.listItems" 
-              :key="`${index}-${item.id}`"
-              class="listItems"
-            >
+              v-for="(item, index) in block.listItems" 
+              :key="`item-${index}`"
+              class="listItems">
               <div class="listItems__content">
                 <li class="h6 listItems__step">{{ item.fields.step }}</li>
                 <p class="listItems__instructions">{{ item.fields.instruction }}</p>
