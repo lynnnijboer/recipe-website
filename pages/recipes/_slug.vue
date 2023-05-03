@@ -2,9 +2,7 @@
     <div class="container">
         <nuxtLink to="/" class="h5 text-color-dark">Back to home</nuxtLink>
         <div v-if="recipeBlock">
-             <div class="modules">
-                <modules :modules="modules"/>
-            </div>
+            <modulesTextBlockModule/>
         </div>
     </div>
 </template>
@@ -21,7 +19,7 @@ export default {
         const recipeBlock = await this.$contentful.getEntries({
             content_type: "recipePage",
             "fields.slug": this.$route.params.slug,
-            include: 3,
+            include: 4,
         });
         if (recipeBlock.items.length === 0) {
             this.$nuxt.error({ statusCode: 404, message: "Page not found" });
@@ -30,6 +28,5 @@ export default {
             [this.recipeBlock] = recipeBlock.items;
         }
     },
-    components: { modules }
 };
 </script>

@@ -11,10 +11,6 @@
         :buttonText="module.buttonText" 
         :secondButtonText="module.secondButtonText"
       />
-      <modulesTextBlockModule 
-        v-if="module.type === 'textBlock'" 
-        :textBlocks="module.textBlocks" 
-      />
       <modulesRecipeBlockModule 
         v-if="module.type === 'recipeBlock'" 
         :recipeBlocks="module.recipeBlocks"

@@ -10,12 +10,13 @@
             <h3 class="title h4">{{ block.title }}</h3>
             <li 
               v-for="(ingredient, index) in block.ingredients" 
-              :key="index"
+              :key="`ingredient-${index}`"
               class="text">
               {{ ingredient.recipe }}
             </li>
             <div
-              v-for="(item, index) in block.listItems" :key="index"
+              v-for="(item, index) in block.listItems" 
+              :key="`item-${index}`"
               class="listItems">
               <div class="listItems__content">
                 <li class="h6 listItems__step">{{ item.step }}</li>
