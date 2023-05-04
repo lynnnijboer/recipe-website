@@ -48,6 +48,7 @@ export default {
   position: fixed;
   right: 0;
   top: 0;
+  display: none;
 
   .nav-items {
     flex-direction: column;
@@ -56,6 +57,10 @@ export default {
     @include media-breakpoint-up(md) {
       flex-direction: row;
     }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: block;
   }
 }
 </style>
