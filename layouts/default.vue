@@ -18,7 +18,7 @@ export default {
             listItems: [
                 {
                     itemText: 'Home',
-                    link: '#recipeBlockModule',
+                    link: '',
                 },
                 {
                     itemText: 'All recipes',

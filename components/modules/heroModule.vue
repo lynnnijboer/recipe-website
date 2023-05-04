@@ -1,6 +1,6 @@
 
 <template>
-    <div class="heroModule">
+    <div id="heroModule" class="heroModule">
       <div class="heroModule__wrapper container">
         <div class="heroModule__content">
           <h1 class="heroModule__content--title h3">{{ title }}</h1>
