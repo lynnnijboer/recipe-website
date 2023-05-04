@@ -66,11 +66,6 @@ export default {
 
   &__content {
     color: var(--color-light);
-    text-align: center;
-
-    @include media-breakpoint-up(sm) {
-      text-align: left;
-    }
 
     &--text {
       width: 100%;
@@ -80,14 +75,8 @@ export default {
 
     &--buttons {
       display: flex;
-      flex-direction: column;
       gap: 10px;
       align-items: center;
-
-      @include media-breakpoint-up(sm) {
-        flex-direction: row;
-        align-items: flex-end;
-      }
     }
   }
 }
