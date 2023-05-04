@@ -3,9 +3,9 @@
     <div id="recipeBlockModule" class="recipeBlockModule">
       <div class="container">
         <h3 class="recipeBlockModule__title">{{ title }}</h3>
-        <button @click="sortItems('title')">alphabet</button>
-        <button @click="sortItems('kcal')">kcal</button>
-        <button @click="sortItems('time')">time</button>
+        <button class="recipeBlockModule__button" @click="sortItems('title')">alphabet</button>
+        <button class="recipeBlockModule__button" @click="sortItems('kcal')">kcal</button>
+        <button class="recipeBlockModule__button" @click="sortItems('time')">time</button>
         <div class="recipeBlockModule__recipeBlocks">
           <recipeBlock 
             v-for="(recipeBlock, index) in recipeBlocks" 
