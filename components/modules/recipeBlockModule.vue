@@ -3,6 +3,9 @@
     <div id="recipeBlockModule" class="recipeBlockModule">
       <div class="container">
         <h3 class="recipeBlockModule__title">{{ title }}</h3>
+        <button @click="sortItems('title')">alphabet</button>
+        <button @click="sortItems('kcal')">kcal</button>
+        <button @click="sortItems('time')">time</button>
         <div class="recipeBlockModule__recipeBlocks">
           <recipeBlock 
             v-for="(recipeBlock, index) in recipeBlocks" 
@@ -31,8 +34,32 @@ export default {
     title: {
       type: String,
     }
+  },
+  data(){
+    return{
+      sortValue: 'title'
+    }
+  },
+  methods: {
+    sortItems(value){
+      this.sortValue = value;
+      this.recipeBlocks.sort(this.compareAll);
+    },
+    compareAll(a, b) {
+      let comparison = 0;
+      if (a.fields[this.sortValue] > b.fields[this.sortValue]) {
+        comparison = 1;
+      } else if (a.fields[this.sortValue] < b.fields[this.sortValue]) {
+        comparison = -1;
+      }
+      return comparison;
+    },
+  },
+  mounted(){
+    this.recipeBlocks.sort(this.compareAll)
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
