@@ -18,11 +18,11 @@ export default {
             listItems: [
                 {
                     itemText: 'Home',
-                    link: 'hallo',
+                    link: '#recipeBlockModule',
                 },
                 {
                     itemText: 'All recipes',
-                    link: 'hallo',
+                    link: '#recipeBlockModule',
                 },
             ]
         }

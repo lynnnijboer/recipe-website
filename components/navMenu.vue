@@ -15,7 +15,8 @@
       <uiButton 
         class="nav-button" 
         :buttonText="buttonText" 
-        :color="color"/>
+        :color="color"
+      />
     </ul>
   </nav>
 </template>
@@ -32,13 +33,12 @@ export default {
     },
     buttonText: {
       type: String,
-      default: 'hallo'
     },
     color: {
       type: String,
       default: 'alpha'
     }
-  }
+  },
 }
 </script>
 

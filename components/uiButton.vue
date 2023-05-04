@@ -1,13 +1,14 @@
 
 <template>
-  <button 
+  <nuxt-link
+      :to="`#${link}`"
       class="ui-button" 
       :class="[color && variant === 'filled' ? `bg-color-${color} py-1 px-3` : '',
                 color === 'transparant' ? 'btn-transparant' : ''
       ]"
     >
     {{ buttonText }}
-  </button>
+  </nuxt-link>
 </template>
 
 <script>
@@ -24,6 +25,9 @@ export default {
       default: "filled"
     },
     color: {
+      type: String,
+    },
+    link: {
       type: String,
     }
   }

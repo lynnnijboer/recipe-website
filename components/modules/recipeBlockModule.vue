@@ -1,6 +1,6 @@
 
 <template>
-    <div class="recipeBlockModule">
+    <div id="recipeBlockModule" class="recipeBlockModule">
       <div class="container">
         <h3 class="recipeBlockModule__title">{{ title }}</h3>
         <div class="recipeBlockModule__recipeBlocks">

@@ -10,12 +10,14 @@
               <uiButton 
                 :color="buttonColor" 
                 :buttonText="buttonText"
+                :link="link"
               />
             </nuxt-link>
             <nuxt-link to="/">
               <uiButton 
                 :color="secondButtonColor" 
                 :buttonText="secondButtonText"
+                :link="secondLink"
               />
             </nuxt-link>
           </div>
@@ -47,6 +49,12 @@ export default {
       type: String,
     },
     secondButtonText: {
+      type: String,
+    },
+    link: {
+      type: String,
+    },
+    secondLink: {
       type: String,
     },
   },
