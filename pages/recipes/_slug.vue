@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <nuxtLink to="/" class="h5 text-color-dark">Back to home</nuxtLink>
+        <nuxtLink to="/" class="h5 text-color-dark mt-5">Back to home</nuxtLink>
         <modulesTextBlockModule
             v-if="recipeBlock"
             :title="recipeBlock.fields.title"
