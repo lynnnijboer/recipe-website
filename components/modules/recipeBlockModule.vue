@@ -1,47 +1,50 @@
-
 <template>
-    <div id="recipeBlockModule" class="recipeBlockModule">
-      <div class="container">
-        <h3 class="recipeBlockModule__title">{{ title }}</h3>
-        <button class="recipeBlockModule__button" @click="sortItems('title')">alphabet</button>
-        <button class="recipeBlockModule__button" @click="sortItems('kcal')">kcal</button>
-        <button class="recipeBlockModule__button" @click="sortItems('time')">time</button>
-        <div class="recipeBlockModule__recipeBlocks">
-          <recipeBlock 
-            v-for="(recipeBlock, index) in recipeBlocks" 
-            :key="index" 
-            :text="recipeBlock.fields.text" 
-            :title="recipeBlock.fields.title"
-            :time="recipeBlock.fields.time"
-            :img="recipeBlock.fields.img.fields.file.url"
-            :kcal="recipeBlock.fields.kcal"
-            :slug="recipeBlock.fields.slug"
-          />
-        </div>
+  <div id="recipeBlockModule" class="recipeBlockModule">
+    <div class="container">
+      <h3 class="recipeBlockModule__title">{{ title }}</h3>
+      <div class="recipeBlockModule__wrapper">
+        <button class="recipeBlockModule__button" @click="sortItems('kcal')">
+          kcal
+        </button>
+        <button class="recipeBlockModule__button" @click="sortItems('time')">
+          time
+        </button>
+      </div>
+      <div class="recipeBlockModule__recipeBlocks">
+        <recipeBlock
+          v-for="(recipeBlock, index) in recipeBlocks"
+          :key="index"
+          :text="recipeBlock.fields.text"
+          :title="recipeBlock.fields.title"
+          :time="recipeBlock.fields.time"
+          :img="recipeBlock.fields.img.fields.file.url"
+          :kcal="recipeBlock.fields.kcal"
+          :slug="recipeBlock.fields.slug"
+        />
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-
 export default {
-  name: 'recipeBlockModule',
+  name: "recipeBlockModule",
   props: {
     recipeBlocks: {
       type: Array,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-    }
+    },
   },
-  data(){
-    return{
-      sortValue: 'title'
-    }
+  data() {
+    return {
+      sortValue: "kcal",
+    };
   },
   methods: {
-    sortItems(value){
+    sortItems(value) {
       this.sortValue = value;
       this.recipeBlocks.sort(this.compareAll);
     },
@@ -55,11 +58,10 @@ export default {
       return comparison;
     },
   },
-  mounted(){
-    this.recipeBlocks.sort(this.compareAll)
-  }
-}
-
+  mounted() {
+    this.recipeBlocks.sort(this.compareAll);
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -67,6 +69,36 @@ export default {
   padding: {
     top: rem(100px);
     bottom: rem(100px);
+  }
+
+  &__wrapper {
+    margin-bottom: rem(20px);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    @include media-breakpoint-up(md) {
+      justify-content: start;
+    }
+  }
+
+  &__button {
+    padding: 4px 12px;
+    min-width: 88px;
+    border: none;
+    font: inherit;
+    color: #373030;
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
+    cursor: default;
+    font-weight: 400;
+    background: #fff;
+    border: 1px solid gray;
+
+    &:active {
+      background: rgb(213, 212, 212);
+    }
   }
 
   &__title {
