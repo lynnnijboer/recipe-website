@@ -87,14 +87,18 @@ export default {
     min-width: 88px;
     border: none;
     font: inherit;
-    color: #373030;
+    color: var(--color-beta);
     border-radius: 4px;
     outline: none;
     text-decoration: none;
     cursor: default;
     font-weight: 400;
-    background: #fff;
+    background-color: var(--color-light);
     border: 1px solid gray;
+
+    &:hover {
+      background-color: var(--color-delta);
+    }
 
     &:active {
       background: rgb(213, 212, 212);

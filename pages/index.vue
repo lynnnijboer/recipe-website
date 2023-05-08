@@ -1,5 +1,5 @@
 <template>
- <div v-if="currentPage && currentPage.fields" class="index">
+  <div v-if="currentPage && currentPage.fields" class="index">
     <modulesHeroModule
       :title="currentPage.fields.title"
       :text="currentPage.fields.text"
@@ -13,26 +13,26 @@
     <div class="modules">
       <modules :modules="currentPage.fields.modules" />
     </div>
+    <pre>{{ currentPage.fields }}</pre>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'IndexPage',
+  name: "IndexPage",
   data() {
     return {
       currentPage: {},
-    }
+    };
   },
 
   async fetch() {
     const { items } = await this.$contentful.getEntries({
-      content_type: 'homepage',
+      content_type: "homepage",
       include: 5,
     });
 
     [this.currentPage] = items;
   },
-}
+};
 </script>
