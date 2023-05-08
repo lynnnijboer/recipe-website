@@ -6,11 +6,15 @@
       <div class="bar3"></div>
     </div>
     <ul
-      class="nav-items d-flex list-unstyled justify-content-end px-2"
+      class="nav-items d-flex list-unstyled px-2"
       :class="this.showMobileMenu ? 'active' : ''"
     >
       <li v-for="(item, index) in listItems" :key="index" class="p-3">
-        <a class="nav-items__item" :href="item.link">
+        <a
+          @click="showMobileMenu = false"
+          class="nav-items__item"
+          :href="item.link"
+        >
           {{ item.itemText }}
         </a>
       </li>
@@ -68,6 +72,13 @@ export default {
       background-color: var(--color-beta);
       overflow: hidden;
       opacity: 1;
+      padding-top: 50px;
+
+      @include media-breakpoint-up(md) {
+        height: unset;
+        width: unset;
+        padding-top: unset;
+      }
     }
 
     @include media-breakpoint-up(md) {
@@ -78,6 +89,7 @@ export default {
   }
 
   .hamburger {
+    padding: 20px;
     z-index: 1000;
     display: inline-block;
     cursor: pointer;
@@ -113,6 +125,7 @@ export default {
 
     @include media-breakpoint-up(md) {
       flex-direction: row;
+      justify-content: flex-end;
     }
   }
 }

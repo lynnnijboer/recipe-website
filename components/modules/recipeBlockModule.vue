@@ -3,12 +3,11 @@
     <div class="container">
       <h3 class="recipeBlockModule__title">{{ title }}</h3>
       <div class="recipeBlockModule__wrapper">
-        <button class="recipeBlockModule__button" @click="sortItems('kcal')">
-          kcal
-        </button>
-        <button class="recipeBlockModule__button" @click="sortItems('time')">
-          time
-        </button>
+        <select v-model="sortValue">
+          <option disabled value="">Please select one</option>
+          <option value="kcal">Kcal</option>
+          <option value="time">Time</option>
+        </select>
       </div>
       <div class="recipeBlockModule__recipeBlocks">
         <recipeBlock
@@ -43,11 +42,12 @@ export default {
       sortValue: "kcal",
     };
   },
-  methods: {
-    sortItems(value) {
-      this.sortValue = value;
+  watch: {
+    sortValue() {
       this.recipeBlocks.sort(this.compareAll);
     },
+  },
+  methods: {
     compareAll(a, b) {
       let comparison = 0;
       if (a.fields[this.sortValue] > b.fields[this.sortValue]) {

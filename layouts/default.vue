@@ -2,7 +2,7 @@
   <div>
     <navMenu :buttonText="buttonText" :color="color" :listItems="listItems" />
     <nuxt />
-    <footerModule />
+    <footerModule :textBlocks="textBlocks" />
   </div>
 </template>
 
@@ -25,6 +25,20 @@ export default {
         {
           itemText: "All recipes",
           link: "#recipeBlockModule",
+        },
+      ],
+      textBlocks: [
+        {
+          title: "Home",
+          text: "",
+          adress: "",
+          linkAdress: "",
+        },
+        {
+          title: "All recipes",
+          text: "",
+          adress: "",
+          linkAdress: "",
         },
       ],
     };

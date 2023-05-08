@@ -13,7 +13,6 @@
     <div class="modules">
       <modules :modules="currentPage.fields.modules" />
     </div>
-    <pre>{{ currentPage.fields }}</pre>
   </div>
 </template>
 
