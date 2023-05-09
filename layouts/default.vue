@@ -30,15 +30,21 @@ export default {
       textBlocks: [
         {
           title: "Home",
+          text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.",
+          link: "",
+          linkUrl: "",
+        },
+        {
+          title: "link",
           text: "",
-          adress: "",
-          linkAdress: "",
+          link: "Hofstedeweg 220, 7535CZ Enschede",
+          linkUrl: "https://goo.gl/maps/KVGxLFwBJ7UpWopc8?coh=178571&entry=tt",
         },
         {
           title: "All recipes",
           text: "",
-          adress: "",
-          linkAdress: "",
+          link: "See all recipes",
+          linkUrl: "#recipeBlockModule",
         },
       ],
     };

@@ -25,14 +25,13 @@ pre {
 
 a {
   text-decoration: unset;
-  display: inline-block;
   color: var(--dynamic-color);
   transition: opacity var(--transition-short) var(--ease-in-out-sine),
     color var(--transition-short) var(--ease-in-out-sine);
 
   &:hover {
-    color: var(--link-hover-color);
-    text-decoration: var(--link-hover-text-decoration);
+    color: unset;
+    text-decoration: unset;
   }
 }
 

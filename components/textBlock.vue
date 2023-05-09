@@ -1,8 +1,10 @@
 <template>
   <div class="textBlock">
-    <h4>{{ title }}</h4>
-    <p>{{ text }}</p>
-    <a :href="adressLink">{{ adress }}</a>
+    <h4 v-if="title">{{ title }}</h4>
+    <p v-if="title && text">{{ text }}</p>
+    <a class="textBlock__link" v-if="link" :href="linkUrl">
+      {{ link }}
+    </a>
   </div>
 </template>
 
@@ -16,14 +18,26 @@ export default {
     text: {
       type: String,
     },
-    adress: {
+    link: {
       type: String,
     },
-    adressLink: {
+    linkUrl: {
       type: String,
     },
   },
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.textBlock {
+  &__link {
+    max-width: 200px;
+    cursor: pointer;
+
+    &:hover {
+      border: none;
+      text-decoration: underline;
+    }
+  }
+}
+</style>
