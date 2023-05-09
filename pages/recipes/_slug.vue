@@ -1,14 +1,16 @@
 <template>
   <div class="container">
-    <nuxtLink to="/" class="h5 text-color-dark home-text"
-      >Back to home
-    </nuxtLink>
-    <modulesTextBlockModule
-      v-if="recipeBlock"
-      :title="recipeBlock.fields.title"
-      :ingredients="recipeBlock.fields.ingredients"
-      :listItems="recipeBlock.fields.listItems"
-    />
+    <div class="recipe-wrapper">
+      <nuxtLink to="/" class="h5 text-color-dark home-text"
+        >Back to home
+      </nuxtLink>
+      <modulesTextBlockModule
+        v-if="recipeBlock"
+        :title="recipeBlock.fields.title"
+        :ingredients="recipeBlock.fields.ingredients"
+        :listItems="recipeBlock.fields.listItems"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -35,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.home-text {
-  margin-top: 100px;
+.recipe-wrapper {
+  padding-top: 100px;
 }
 </style>
