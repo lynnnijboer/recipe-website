@@ -114,7 +114,11 @@ export default {
 
   .nav-items {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+
+    .nav-button {
+      margin-left: 1rem;
+    }
 
     &__item {
       color: var(--color-light);
@@ -126,6 +130,7 @@ export default {
     @include media-breakpoint-up(md) {
       flex-direction: row;
       justify-content: flex-end;
+      align-items: center;
     }
   }
 }
