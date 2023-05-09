@@ -1,7 +1,7 @@
 <template>
   <div class="textBlock">
     <h4 v-if="title">{{ title }}</h4>
-    <p v-if="title && text">{{ text }}</p>
+    <p class="m-0" v-if="title && text">{{ text }}</p>
     <a class="textBlock__link" v-if="link" :href="linkUrl">
       {{ link }}
     </a>
@@ -31,6 +31,7 @@ export default {
 <style lang="scss">
 .textBlock {
   &__link {
+    display: inline-block;
     max-width: 200px;
     cursor: pointer;
 

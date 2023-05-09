@@ -1,6 +1,6 @@
 <template>
   <footer id="footerModule" class="footer text-color-light">
-    <div class="container d-flex">
+    <div class="footer__wrapper container d-flex flex-wrap">
       <textBlock
         class="col-12 col-sm-6 col-md-4"
         v-for="(textBlock, index) in textBlocks"
@@ -35,6 +35,14 @@ export default {
   padding: {
     top: rem(50px);
     bottom: rem(50px);
+  }
+
+  &__wrapper {
+    gap: 30px;
+
+    @include media-breakpoint-up(md) {
+      gap: unset;
+    }
   }
 }
 </style>
