@@ -77,6 +77,7 @@ export default {
       @include media-breakpoint-up(md) {
         height: unset;
         width: unset;
+        background-color: transparent;
         padding-top: unset;
       }
     }
