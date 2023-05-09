@@ -6,7 +6,7 @@
       <div class="bar3"></div>
     </div>
     <ul
-      class="nav-items d-flex list-unstyled px-2"
+      class="nav-items d-flex list-unstyled"
       :class="this.showMobileMenu ? 'active' : ''"
     >
       <li v-for="(item, index) in listItems" :key="index" class="p-3">
@@ -72,7 +72,7 @@ export default {
       background-color: var(--color-beta);
       overflow: hidden;
       opacity: 1;
-      padding-top: 50px;
+      padding-top: 100px;
 
       @include media-breakpoint-up(md) {
         height: unset;
@@ -118,6 +118,7 @@ export default {
 
     .nav-button {
       margin-left: 1rem;
+      margin-block: 1rem;
     }
 
     &__item {
@@ -131,6 +132,7 @@ export default {
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      padding: unset;
     }
   }
 }
