@@ -6,7 +6,7 @@
       <div class="bar3"></div>
     </div>
     <ul
-      class="nav-items d-flex list-unstyled"
+      class="nav-items d-flex list-unstyled px-2"
       :class="this.showMobileMenu ? 'active' : ''"
     >
       <li v-for="(item, index) in listItems" :key="index" class="p-3">
